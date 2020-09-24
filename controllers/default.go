@@ -41,21 +41,39 @@ func (c *MainController) Get() {
 	}
 }*/
 //该方法用于处理post类型的请求
-func (c *MainController) Post()  {
-	//1.解析前端提交的json格式数据
-	var person  models.Person
-	dataByes,err := ioutil.ReadAll(c.Ctx.Request.Body)
+//func (c *MainController) Post()  {
+//	1.解析前端提交的json格式数据
+	//var person  models.Person
+	//dataByes,err := ioutil.ReadAll(c.Ctx.Request.Body)
+	//if err!= nil{
+	//	c.Ctx.WriteString("数据接收错误，请重试")
+	//	return
+	//}
+	//err = json.Unmarshal(dataByes ,&person)
+	//if err!= nil{
+	//	c.Ctx.WriteString("数据接收失败，请重试")
+	//	return
+	//}
+	//fmt.Println("姓名:",person.Name)
+	//fmt.Println("姓名:",person.Age)
+	//fmt.Println("姓名:",person.Sex)
+	//c.Ctx.WriteString("数据解析成功")
+//}
+func (c *MainController) Post() {
+	var air  models.Air
+	dataBytes,err := ioutil.ReadAll(c.Ctx.Request.Body)
 	if err!= nil{
 		c.Ctx.WriteString("数据接收错误，请重试")
 		return
 	}
-	err = json.Unmarshal(dataByes ,&person)
+	err = json.Unmarshal(dataBytes ,&air)
 	if err!= nil{
 		c.Ctx.WriteString("数据接收失败，请重试")
 		return
 	}
-	fmt.Println("姓名:",person.Name)
-	fmt.Println("姓名:",person.Age)
-	fmt.Println("姓名:",person.Sex)
+	fmt.Println(air.Name)
+	fmt.Println(air.Address)
+	fmt.Println(air.Birthday)
+	fmt.Println(air.Nick)
 	c.Ctx.WriteString("数据解析成功")
 }

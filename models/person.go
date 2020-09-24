@@ -8,3 +8,9 @@ type Person struct {
 	Age int
 	Sex string
 }
+type Air struct {
+Name string
+Birthday float64
+Address string
+Nick string
+}
