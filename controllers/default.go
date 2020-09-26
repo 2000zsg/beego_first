@@ -2,8 +2,8 @@ package controllers
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/astaxie/beego"
+	//"hl/db_mysql"
 	"hl/models"
 	"io/ioutil"
 )
@@ -14,7 +14,7 @@ type MainController struct {
 
 func (c *MainController) Get() {
 	//1.获取请求数据
-	user:=c.Ctx.Input.Query("user")
+	user:=c.Ctx.Input.Query("user")//c. getstring("user")返回整数iiiiiii'j
 	psd:= c.Ctx.Input.Query("psd")
 	//2.使用固定数据进行数据校验
 	if user !="zhangshenggang" || psd !="123456"{
@@ -71,9 +71,10 @@ func (c *MainController) Post() {
 		c.Ctx.WriteString("数据接收失败，请重试")
 		return
 	}
-	fmt.Println(air.Name)
-	fmt.Println(air.Address)
-	fmt.Println(air.Birthday)
-	fmt.Println(air.Nick)
-	c.Ctx.WriteString("数据解析成功")
+	//db_mysql.InserUser(air)
+	//fmt.Println(air.Name)
+	//fmt.Println(air.Address)
+	//fmt.Println(air.Birthday)
+	//fmt.Println(air.Nick)
+	//c.Ctx.WriteString("数据解析成功")
 }

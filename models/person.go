@@ -14,3 +14,15 @@ Birthday float64
 Address string
 Nick string
 }
+type User struct {
+	Name string `form:"user_name"`
+	Birthday float64 `form:"birthday"`
+	Address string `form:"address"`
+	Nick string `form:"nick"`
+	Password string `form:"password"`
+}
+type ResponseResult struct {
+	Code int `json:"code"`
+	Message string `json:"message"`
+	Data interface{} `json:"data"`
+}
